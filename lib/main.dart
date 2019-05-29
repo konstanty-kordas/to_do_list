@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './index_main.dart';
+import './drawer.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,18 +10,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Name in Progress'),
-        ),
-        body: IndexMain(),
-      ),
+      home: IndexMain(),
       theme: ThemeData(
-        primaryColor: Colors.red[300],
+        primaryColor: Colors.deepOrange,
+        backgroundColor: Colors.lightBlue[100],
       ),
     );
   }
 }
 
-
-
+class ScreenTwo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // drawer: MySideDrawer(),
+      appBar: AppBar(
+        title: Text('Title'),
+      ),
+      body: Container(
+        child: Text("data"),
+      ),
+      backgroundColor: Theme.of(context).backgroundColor,
+    );
+  }
+}

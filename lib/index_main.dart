@@ -1,14 +1,33 @@
 import 'package:flutter/material.dart';
 
-import './input_ideas.dart';
 
+import './ideas_list.dart';
+import './new_idea_button.dart';
+// import './drawer.dart';
 
-class IndexMain extends StatelessWidget {
-  final List<String> _ideas = [];
+class IndexMain extends StatefulWidget {
+  _IndexMainState createState() => _IndexMainState();
+}
+
+class _IndexMainState extends State<IndexMain> {
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: InputIdea(_ideas),
+    return Scaffold(
+      // drawer: MySideDrawer(),
+      appBar: AppBar(
+        title: Text('Name in Progress'),
+      ),
+      body: Stack(
+        children: <Widget>[
+          MyIdeasList(),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: AddNewIdeaButton(),
+          ),
+        ],
+      ),
+      backgroundColor: Theme.of(context).backgroundColor,
     );
   }
 }
